@@ -1,0 +1,31 @@
+{
+  "name": "erschaffer-judge",
+  "version": "1.0.0",
+  "description": "Basic dojo for erschaffer project",
+  "main": "app.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianiiaannn/erschaffer-please-hack-me.git"
+  },
+  "keywords": [
+    "ctf"
+  ],
+  "author": "ianiiaannn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ianiiaannn/erschaffer-please-hack-me/issues"
+  },
+  "homepage": "https://github.com/ianiiaannn/erschaffer-please-hack-me#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mariadb": "^2.5.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

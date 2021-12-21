@@ -1,0 +1,17 @@
+version: '3'
+services:
+  basic:
+    build: ./basic
+    ports:
+      - "23456:80"
+  judge:
+    build: ./judge
+    ports:
+      - "80:80"
+    links:
+      - "judge_db:database"
+  judge_db:
+    image: "mariadb"
+    environment:
+      - "MARIADB_ROOT_PASSWORD=serect"
+    

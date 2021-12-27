@@ -14,4 +14,13 @@ services:
     image: "mariadb"
     environment:
       - "MARIADB_ROOT_PASSWORD=serect"
-    
+  sqli-1:
+    build: ./SQLi-1
+    ports:
+      - "34567:80"
+    links:
+      - "sqli-1_db:database"
+  sqli-1_db:
+    image: "mariadb"
+    environment:
+      - "MARIADB_ROOT_PASSWORD=serect"

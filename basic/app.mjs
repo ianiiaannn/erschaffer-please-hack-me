@@ -32,11 +32,7 @@ app.get('/admin/logout', (req, res) => {
       if (lowDate <= reqDate && upDate >= reqDate) {
         if (req.rawHeaders.toString().match(/curl/gi)) {
           if (req.rawHeaders.toString().match(/jp/gi)) {
-            if (req.headers.dnt == 1) {
-              res.render('basic', {script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}'});
-            } else {
-              res.render('basic', {script: '', message: 'Admin sould be trcakable for sec problems.'});
-            }
+            res.render('basic', {script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}'});
           } else {
             res.render('basic', {script: '', message: 'あなたは誰'});
           }

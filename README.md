@@ -1,5 +1,59 @@
-# erschaffer-please-hack-me
+# 2022 中部電資聯合寒訓 窩不資到 靶機
 
-2022 中部電資聯合寒訓 窩不資到 靶機
+erschaffer-please-hack-me
+
+## 聲明
 
 歡迎參加本次的寒訓，此次寒訓的教學內容僅限用於教學及學習本課程之用途，其餘使用須自行承擔一切風險，本營隊不會負責任何因使用本次教學內容而引致之觸法行為。本營隊不會作出任何默示的擔保。
+
+## 結構
+
+這個專案使用 docker-compose，會使用到多個 container。
+
+* judge 為計分伺服器，有自己的 DB，使用 80 port。
+* basic 為簡易題目伺服器，使用 23456 port。
+* SQLi-1 為 SQL-Injection 伺服器，使用 34567 port。
+
+## 安裝（新手 Windows 10 or 11 版）
+
+* 安裝 [Git](https://git-scm.com/downloads) 和 [Docker](https://docs.docker.com/desktop/windows/install/)（建議使用 WSL 2 Backend 版，需要重新開機幾次）
+* 按下鍵盤下的 Windows+R，輸入 CMD
+* 打開想要安裝本專案的資料夾
+```Shell
+cd Documents
+```
+* 使用 git clone 下載本專案
+```Shell
+git clone https://github.com/ianiiaannn/erschaffer-please-hack-me.git
+```
+* 完成後進入資料夾
+```Shell
+cd erschaffer-please-hack-me
+```
+* 啟動腳本為 run.bat，關閉腳本為 stop.bat，可以使用滑鼠點兩下。
+```Shell
+run.bat
+(powershell 可能會需要 .\run.bat)
+```
+* 更新
+```Shell
+git pull
+```
+
+## Install（Normal ver.）
+
+* [Install docker](https://docs.docker.com/engine/install/ubuntu/)
+```Shell
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+* Clone
+```Shell
+git clone https://github.com/ianiiaannn/erschaffer-please-hack-me.git
+cd erschaffer-please-hack-me
+```
+* Run
+```Shell
+sudo docker-compose up --build -d
+```
+:P

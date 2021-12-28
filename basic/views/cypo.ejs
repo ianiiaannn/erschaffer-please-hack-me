@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    // https://stackoverflow.com/questions/24775725/loop-through-childnodes
+    NodeList.prototype.forEach = Array.prototype.forEach
+    window.addEventListener('load', () => {
+      const submitBTN = document.getElementById('XHR');
+      let urlEncodeData;
+      const form = document.getElementById('inputForm');
+      form.addEventListener('submit', () => {
+        event.preventDefault();
+        const XHR = new XMLHttpRequest();
+        XHR.addEventListener('load', () => {
+          console.log('load');
+        })
+        XHR.addEventListener('error', () => {
+          console.log('error');
+        })
+        XHR.onreadystatechange = () => {
+          if(XHR.readyState==XMLHttpRequest.DONE)
+            console.log(XHR.response);
+        }
+        XHR.open('POST', '/cypo', true);
+        XHR.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        XHR.send('foo=bar')
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <form id="inputForm">
+    <input id="ans1" name="ans1">
+    <button id="XHR">Click me</button>
+  </form>
+</body>
+
+</html>

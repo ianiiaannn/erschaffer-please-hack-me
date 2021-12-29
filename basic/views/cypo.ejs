@@ -12,6 +12,17 @@
       form.addEventListener('submit', () => {
         event.preventDefault();
         const XHR = new XMLHttpRequest();
+        let req='';
+        form.childNodes.forEach((e)=>{
+          if(e.nodeName=='INPUT'){
+            if(e.value){
+              req+=e.name;
+              req+='=';
+              req+=e.value;
+              req+='&';
+            }
+          }
+        });
         XHR.addEventListener('load', () => {
           console.log('load');
         })
@@ -22,9 +33,9 @@
           if(XHR.readyState==XMLHttpRequest.DONE)
             console.log(XHR.response);
         }
-        XHR.open('POST', '/cypo', true);
+        XHR.open('POST', '/cypo?'+ req+'1', true);
         XHR.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        XHR.send('foo=bar')
+        XHR.send('/cypo?'+ req+'1');
       })
     })
   </script>

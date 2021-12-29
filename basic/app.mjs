@@ -60,9 +60,8 @@ app.get('/cypo', (req, res)=>{
 });
 
 app.post('/cypo', (req, res)=>{
-  console.log(req.query)
-  console.log(req.query.foo)
-  res.send(req.query.foo);
+  console.log(req.query);
+  res.send(req.query);
 });
 
 

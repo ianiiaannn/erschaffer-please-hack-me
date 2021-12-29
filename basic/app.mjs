@@ -4,14 +4,14 @@ const PORT = 80;
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import http from 'http';
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
 
 
 const app = express();
 http.createServer(app);
 app.set('view engine', 'ejs');
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.send('target server');
@@ -51,15 +51,25 @@ app.get('/admin/logout', (req, res) => {
       res.render('basic', { script: '', message: 'Where\'s your user cookie, admin?' });
     }
   } else {
-    res.render('basic', { script: '', message: 'Not for you. You are not from the /admin page.' });
+    res.render('basic', { script: '', message: 'No U. You are not from the /admin page.' });
   }
+});
+
+app.get('/admin', (req, res)=>{
+  res.redirect('/');
 });
 
 app.get('/cypo', (req, res)=>{
   res.render('cypo');
 });
 
+// XHR
 app.post('/cypo', (req, res)=>{
+  if (req.query.ans1=='') {
+
+  } else {
+    
+  }
   console.log(req.query);
   res.send(req.query);
 });

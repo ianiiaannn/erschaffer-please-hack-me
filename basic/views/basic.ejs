@@ -7,35 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <title>find flag</title>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <title>
+    <%- title %>
+  </title>
   <style>
-    div {
-      font-family: 微軟正黑體, Times New Roman;
+    * {
+      font-family: Microsoft JhengHei , Times New Roman;
     }
   </style>
 </head>
 
 <body>
-  <div class="container position-relative overflow-hidden ">
-    <h1><%- title %></h1>
-    
-    <div class="row justify-content-center">
-      <div class="col gy-5 text-center">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-2 border border-3">
+        <h1><%- title %></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col gy-5">
         <%- message %>
       </div>
 
     </div>
-    <div class="fixed-bottom">
-      <a class="btn btn-outline-dark" style="color:#DD99BB;" role="button"
-        href="https://docs.google.com/presentation/d/1Au4JujjPrEBJBqkzmnohOygYYJE0tADdaHWsYKLaCiI/edit#slide=id.g10970c3bd3f_14_92">簡報</a>
-    </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-
 </body>
 
 </html>

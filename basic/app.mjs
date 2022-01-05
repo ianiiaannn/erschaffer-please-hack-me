@@ -90,7 +90,7 @@ app.post('/cypo', (req, res)=>{
 });
 
 app.get('/md5', (req, res)=>{
-  res.render('basic', {script: '', message: 'Give me two .idcard file with same MD5 to prove you are the agent. Upload limit is 4mb.<br><form method="POST"enctype="multipart/form-data"><input type="file" name="file1"><input type="file" name="file2"><button action="submit">upload</button></form>'});
+  res.render('basic', {title: 'Same MD5 in two files?', script: '', message: 'Give me two .idcard file with same MD5 to prove you are the agent. Upload limit is 4mb.<br><form method="POST"enctype="multipart/form-data"><input type="file" name="file1"><input type="file" name="file2"><button action="submit">upload</button></form>'});
 });
 
 app.post('/md5', (req, res)=>{

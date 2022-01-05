@@ -65,10 +65,22 @@ app.get('/cypo', (req, res)=>{
 
 // XHR
 app.post('/cypo', (req, res)=>{
-  if (req.query.ans1=='') {
-
+  if (req.query.ans1=='There are only 10 kinds of people in this world: those who know binary and those who don’t.') {
+    if (req.query.ans2=='Ljnbja lryqna') {
+      if (req.query.ans3=='Programming is like sex:One mistake and you have to support it for the rest of your life.') {
+        if (req.query.ans4=='b3abe5d8c69b38733ad57ea75e83bcae42bbbbac75e3a5445862ed2f8a2cd677') {
+          res.send({flag: 'FLAG{e098b8a25b0a7a266299a01606a650ea672c42a3fb10f5a3c5265b31e59a1331}', message: 'You win! The flag is SHA256 my favotie game.'});
+        } else {
+          res.send({flag: 'FLAG{BaseBaseBaseBaseBaseBase_BaseBaseBaseBase}', message: 'What is the SHA256 hash of string "SHA256"?'});
+        }
+      } else {
+        res.send({flag: 'FLAG{Rs_jwho_Qosgofia}', message: 'UHJvZ3JhbW1pbmcgaXMgbGlrZSBzZXg6T25lIG1pc3Rha2UgYW5kIHlvdSBoYXZlIHRvIHN1cHBvcnQgaXQgZm9yIHRoZSByZXN0IG9mIHlvdXIgbGlmZS4='});
+      }
+    } else {
+      res.send({flag: 'FLAG{TH1S1S2EZF0RMEEEEEEEEEEE}', message: 'Va pelcgbtencul, n Pnrfne pvcure vf bar bs gur fvzcyrfg naq zbfg jvqryl xabja rapelcgvba grpuavdhrf. Vg vf n glcr bs fhofgvghgvba pvcure va juvpu rnpu yrggre va gur cynvagrkg vf ercynprq ol n yrggre fbzr svkrq ahzore bs cbfvgvbaf qbja gur nycunorg. Gur nafjre vf "Ywaown yeldan"'});
+    }
   } else {
-    
+    res.send({message: '01010100 01101000 01100101 01110010 01100101 00100000 01100001 01110010 01100101 00100000 01101111 01101110 01101100 01111001 00100000 00110001 00110000 00100000 01101011 01101001 01101110 01100100 01110011 00100000 01101111 01100110 00100000 01110000 01100101 01101111 01110000 01101100 01100101 00100000 01101001 01101110 00100000 01110100 01101000 01101001 01110011 00100000 01110111 01101111 01110010 01101100 01100100 00111010 00100000 01110100 01101000 01101111 01110011 01100101 00100000 01110111 01101000 01101111 00100000 01101011 01101110 01101111 01110111 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100001 01101110 01100100 00100000 01110100 01101000 01101111 01110011 01100101 00100000 01110111 01101000 01101111 00100000 01100100 01101111 01101110 11100010 10000000 10011001 01110100 00101110'});
   }
   console.log(req.query);
   res.send(req.query);

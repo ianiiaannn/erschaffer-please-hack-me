@@ -12,6 +12,7 @@
       form.addEventListener('submit', () => {
         event.preventDefault();
         const XHR = new XMLHttpRequest();
+        XHR.responseType='json';
         let req='';
         form.childNodes.forEach((e)=>{
           if(e.nodeName=='INPUT'){
@@ -23,15 +24,20 @@
             }
           }
         });
-        XHR.addEventListener('load', () => {
-          console.log('load');
-        })
         XHR.addEventListener('error', () => {
           console.log('error');
         })
         XHR.onreadystatechange = () => {
-          if(XHR.readyState==XMLHttpRequest.DONE)
-            console.log(XHR.response);
+          if(XHR.readyState==XMLHttpRequest.DONE){
+            console.log(XHR.response.message);
+            document.getElementById('message').innerText=XHR.response.message;
+            if(XHR.response.flag){
+              let child=document.createElement('div');
+              child.innerText=XHR.response.flag;
+              document.getElementById('flag').appendChild(child);
+              
+            }
+          }
         }
         XHR.open('POST', '/cypo?'+ req+'1', true);
         XHR.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -42,8 +48,15 @@
 </head>
 
 <body>
+  Server:
+  <div id="message">01010100 01101000 01100101 01110010 01100101 00100000 01100001 01110010 01100101 00100000 01101111 01101110 01101100 01111001 00100000 00110001 00110000 00100000 01101011 01101001 01101110 01100100 01110011 00100000 01101111 01100110 00100000 01110000 01100101 01101111 01110000 01101100 01100101 00100000 01101001 01101110 00100000 01110100 01101000 01101001 01110011 00100000 01110111 01101111 01110010 01101100 01100100 00111010 00100000 01110100 01101000 01101111 01110011 01100101 00100000 01110111 01101000 01101111 00100000 01101011 01101110 01101111 01110111 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100001 01101110 01100100 00100000 01110100 01101000 01101111 01110011 01100101 00100000 01110111 01101000 01101111 00100000 01100100 01101111 01101110 11100010 10000000 10011001 01110100 00101110</div>
+  Flags:
+  <div id="flag"></div>
   <form id="inputForm">
     <input id="ans1" name="ans1">
+    <input id="ans2" name="ans2">
+    <input id="ans3" name="ans3">
+    <input id="ans4" name="ans4">
     <button id="XHR">Click me</button>
   </form>
 </body>

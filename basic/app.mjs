@@ -5,24 +5,27 @@ import cookieParser from 'cookie-parser';
 import express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
+import formidable from 'formidable';
+import md5File from 'md5-file';
+import {sha1File} from 'sha1-file';
 
 
 const app = express();
 http.createServer(app);
 app.set('view engine', 'ejs');
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false, limit: '4mb'}));
 
 app.get('/', (req, res) => {
   res.send('target server');
 });
 
 app.get('/1', (req, res) => {
-  res.render('basic', { script: '', message: 'hmmm where is the flag?<br><!-- FLAG{Th1sI5AnExamp1eF1aggggggggggggggggggggggggggggggggggggggggggggggggg} -->' });
+  res.render('basic', {script: '', message: 'hmmm where is the flag?<br><!-- FLAG{Th1sI5AnExamp1eF1aggggggggggggggggggggggggggggggggggggggggggggggggg} -->'});
 });
 
 app.get('/2', (req, res) => {
-  res.render('basic', { script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- FLAG{HOW_RUDE_YOU_ARE} -->' });
+  res.render('basic', {script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- FLAG{HOW_RUDE_YOU_ARE} -->'});
 });
 
 app.get('/admin/logout', (req, res) => {
@@ -35,23 +38,23 @@ app.get('/admin/logout', (req, res) => {
       if (lowDate <= reqDate && upDate >= reqDate) {
         if (req.rawHeaders.toString().match(/curl/gi)) {
           if (req.rawHeaders.toString().match(/jp/gi)) {
-            res.render('basic', { script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}' });
+            res.render('basic', {script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}'});
           } else {
-            res.render('basic', { script: '', message: 'あなたは誰' });
+            res.render('basic', {script: '', message: 'あなたは誰'});
           }
         } else {
-          res.render('basic', { script: '', message: 'The site owner can access this site with command line tool.' });
+          res.render('basic', {script: '', message: 'The site owner can access this site with command line tool.'});
         }
       } else {
-        res.render('basic', { script: '', message: 'Wake up! It\'s already 2077!' });
+        res.render('basic', {script: '', message: 'Wake up! It\'s already 2077!'});
       }
     } else {
       console.log(req.cookies);
-      res.cookie('user', '', { path: '/admin', maxAge: 600000 });
-      res.render('basic', { script: '', message: 'Where\'s your user cookie, admin?' });
+      res.cookie('user', '', {path: '/admin', maxAge: 600000});
+      res.render('basic', {script: '', message: 'Where\'s your user cookie, admin?'});
     }
   } else {
-    res.render('basic', { script: '', message: 'No U. You are not from the /admin page.' });
+    res.render('basic', {script: '', message: 'No U. You are not from the /admin page.'});
   }
 });
 
@@ -86,6 +89,39 @@ app.post('/cypo', (req, res)=>{
   res.send(req.query);
 });
 
+app.get('/md5', (req, res)=>{
+  res.render('basic', {script: '', message: 'Give me two .idcard file with same MD5 to prove you are the agent. Upload limit is 4mb.<br><form method="POST"enctype="multipart/form-data"><input type="file" name="file1"><input type="file" name="file2"><button action="submit">upload</button></form>'});
+});
+
+app.post('/md5', (req, res)=>{
+  const form=new formidable.IncomingForm();
+  form.parse(req, (err, fields, files)=>{
+    if (err) {
+      res.send('server error.');
+    } else {
+      console.log(files.file1.PersistentFile);
+      if (/\.idcard$/gi.test(files.file1.originalFilename)&&/\.idcard$/gi.test(files.file2.originalFilename)) {
+        sha1File(files.file1.filepath).then((sha11)=>{
+          sha1File(files.file2.filepath).then((sha12)=>{
+            if (sha11!=sha12) {
+              md5File(files.file1.filepath).then((md51)=>{
+                md5File(files.file2.filepath).then((md52)=>{
+                  if (md51==md52)res.send('FLAG{MDMDMDMDMD}');
+                  else res.send('Wrong files.');
+                });
+              });
+            } else {
+              res.send('Same flies.');
+            }
+          });
+        });
+      } else {
+        res.send('These are not .idcard files!');
+      }
+      // res.send(files.file1.filepath);
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log('app started on port ' + PORT + '.');

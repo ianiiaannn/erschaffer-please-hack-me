@@ -1,47 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script><%- script %></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>find flag</title>
-  </head>
 
-  <body>
-    <%- message %>
-    <div class="container position-relative overflow-hidden ">
+<head>
+  <script><% - script %></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <title>find flag</title>
 
+  <style>
+    div {
+      font-family: 微軟正黑體, Times New Roman;
+    }
+  </style>
+</head>
 
-      <div class="row justify-content-start">
-        <div class="col-4  display-6 text-start" style="color: font-family: 微軟正黑體, Times New Roman;">基本題-1</div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-6 gy-5 display-3 text-center" style="color:#C2B8AD; font-family: 微軟正黑體, Times New Roman">
-          旗子放哪?
-        </div>
-        <!--<div class="column" ></div>-->
-      </div>
-
-      <div class="fixed-bottom">
-        <a class="btn btn-outline-dark" style="color:#DD99BB;" role="button" href="https://docs.google.com/presentation/d/1Au4JujjPrEBJBqkzmnohOygYYJE0tADdaHWsYKLaCiI/edit#slide=id.g10970c3bd3f_14_92">簡報</a>
+<body>
+  <div class="container position-relative overflow-hidden ">
+    <h1><%- title %></h1>
+    
+    <div class="row justify-content-center">
+      <div class="col gy-5 text-center">
+        <%- message %>
       </div>
 
-      <!--
-      <div class="row">
-        <div class="column text-center" >
-          <a class="btn btn-outline-dark" style="color:#DD99BB;" role="button" href="https://docs.google.com/presentation/d/1Au4JujjPrEBJBqkzmnohOygYYJE0tADdaHWsYKLaCiI/edit#slide=id.g10970c3bd3f_14_92">想不出旗子在哪可以點連結回去看看講義喔!</a>
-        </div>  
-      </div>
-      -->      
-      <!-- 
-        <h1 class="display-1 text-center" style="color:#506AD4;">旗子放哪?</h1>
-        <h1 class="display-1 text-center" style="color:#C2B8AD;">窩也不資道</h1>
-        <a class="position-absolute top-100 start-0 btn btn-outline-dark" role="button" href="https://docs.google.com/presentation/d/1Au4JujjPrEBJBqkzmnohOygYYJE0tADdaHWsYKLaCiI/edit#slide=id.g10970c3bd3f_14_92">想不出旗子在哪可以點連結回去看看講義喔!</a>
-      -->
     </div>
+    <div class="fixed-bottom">
+      <a class="btn btn-outline-dark" style="color:#DD99BB;" role="button"
+        href="https://docs.google.com/presentation/d/1Au4JujjPrEBJBqkzmnohOygYYJE0tADdaHWsYKLaCiI/edit#slide=id.g10970c3bd3f_14_92">簡報</a>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
 
-  </body>
+</body>
+
 </html>

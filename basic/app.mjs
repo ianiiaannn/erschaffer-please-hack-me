@@ -21,11 +21,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/1', (req, res) => {
-  res.render('basic', {script: '', message: 'hmmm where is the flag?<br><!-- FLAG{Th1sI5AnExamp1eF1aggggggggggggggggggggggggggggggggggggggggggggggggg} -->'});
+  res.render('basic', {title: '第一題', script: '', message: 'hmmm where is the flag?<br><!-- FLAG{Th1sI5AnExamp1eF1aggggggggggggggggggggggggggggggggggggggggggggggggg} -->'});
 });
 
 app.get('/2', (req, res) => {
-  res.render('basic', {script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- FLAG{HOW_RUDE_YOU_ARE} -->'});
+  res.render('basic', {title: '第二題', script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- FLAG{HOW_RUDE_YOU_ARE} -->'});
 });
 
 app.get('/admin/logout', (req, res) => {
@@ -38,23 +38,23 @@ app.get('/admin/logout', (req, res) => {
       if (lowDate <= reqDate && upDate >= reqDate) {
         if (req.rawHeaders.toString().match(/curl/gi)) {
           if (req.rawHeaders.toString().match(/jp/gi)) {
-            res.render('basic', {script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}'});
+            res.render('basic', {title: 'HTTP Header', script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}'});
           } else {
-            res.render('basic', {script: '', message: 'あなたは誰'});
+            res.render('basic', {title: 'HTTP Header', script: '', message: 'あなたは誰'});
           }
         } else {
-          res.render('basic', {script: '', message: 'The site owner can access this site with command line tool.'});
+          res.render('basic', {title: 'HTTP Header', script: '', message: 'The site owner can access this site with command line tool.'});
         }
       } else {
-        res.render('basic', {script: '', message: 'Wake up! It\'s already 2077!'});
+        res.render('basic', {title: 'HTTP Header', script: '', message: 'Wake up! It\'s already 2077!'});
       }
     } else {
       console.log(req.cookies);
       res.cookie('user', '', {path: '/admin', maxAge: 600000});
-      res.render('basic', {script: '', message: 'Where\'s your user cookie, admin?'});
+      res.render('basic', {title: 'HTTP Header', script: '', message: 'Where\'s your user cookie, admin?'});
     }
   } else {
-    res.render('basic', {script: '', message: 'No U. You are not from the /admin page.'});
+    res.render('basic', {title: 'HTTP Header', script: '', message: 'No U. You are not from the /admin page.'});
   }
 });
 
@@ -72,7 +72,7 @@ app.post('/cypo', (req, res)=>{
     if (req.query.ans2=='Ljnbja lryqna') {
       if (req.query.ans3=='Programming is like sex:One mistake and you have to support it for the rest of your life.') {
         if (req.query.ans4=='b3abe5d8c69b38733ad57ea75e83bcae42bbbbac75e3a5445862ed2f8a2cd677') {
-          res.send({flag: 'FLAG{e098b8a25b0a7a266299a01606a650ea672c42a3fb10f5a3c5265b31e59a1331}', message: 'You win! The flag is SHA256 my favotie game.'});
+          res.send({cryptography, flag: 'FLAG{e098b8a25b0a7a266299a01606a650ea672c42a3fb10f5a3c5265b31e59a1331}', message: 'You win! The flag is SHA256 my favotie game.'});
         } else {
           res.send({flag: 'FLAG{BaseBaseBaseBaseBaseBase_BaseBaseBaseBase}', message: 'What is the SHA256 hash of string "SHA256"?'});
         }

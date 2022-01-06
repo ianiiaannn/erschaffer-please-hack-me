@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc */
 const PORT = 80;
+let dbPrepared=false;
 
 import express from 'express';
 import Http from 'http';
@@ -12,21 +13,30 @@ app.set('view engine', 'ejs');
 const pool=mysql.createPool({
   host: 'database',
   user: 'root',
-  password: 'serect',
+  password: '',
   database: 'judge',
 });
 
 async function dbLookup(q) {
-  let message;
-  await pool.query({sql: q})
-      .then((results)=>{
-        console.log(message);
-        message=results;
-      }).catch((error)=>{
-        if (error) message= error;
-        throw error;
-      });
-  return message;
+  let message; let retry=true;
+  while (retry) {
+    retry=false;
+    try {
+      await pool.query({sql: q})
+          .then((results)=>{
+            message=results;
+          }).catch((error)=>{
+            if (error) message= error;
+            throw error;
+          });
+      return message;
+    } catch (err) {
+      if (err.code=='ETIMEDOUT') {
+        console.log('Cannot connect to database server. Reconnecting.');
+        retry=true;
+      }
+    }
+  }
 };
 
 app.get('/', (req, res) => {
@@ -42,13 +52,15 @@ app.listen(PORT, () => {
 });
 
 async function dbInit() {
-  console.log(await dbLookup(`CREATE DATABASE IF NOT EXISTS \`judge\``));
-  console.log(await dbLookup(`CREATE TABLE IF NOT EXISTS \`problems\` (
+  await dbLookup(`CREATE DATABASE IF NOT EXISTS \`judge\``);
+  await dbLookup(`CREATE TABLE IF NOT EXISTS \`problems\` (
     \`id\` int(6) unsigned NOT NULL,
     \`content\` varchar(200) NOT NULL,
     \`flag\` varchar(200) NOT NULL,
     PRIMARY KEY (\`id\`)
-  ) DEFAULT CHARSET=utf8;`));
-  console.log('aaaaaaa');
+  ) DEFAULT CHARSET=utf8;`);
+
+  dbPrepared=true;
+  console.log('Database init finish. Accepting queue.');
 }
 dbInit();

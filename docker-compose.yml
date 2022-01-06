@@ -15,7 +15,6 @@ services:
     volumes:
       - ./judge/mysql:/var/lib/mysql
     environment:
-      - "MYSQL_ROOT_PASSWORD=serect"
       - "MYSQL_DATABASE=judge"
   sqli-1:
     build: ./SQLi-1
@@ -26,7 +25,6 @@ services:
   sqli-1_db:
     image: "mysql"
     environment:
-      - "MYSQL_ROOT_PASSWORD=serect"
       - "MYSQL_DATABASE=sqli"
 volumes:
   judge:

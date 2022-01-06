@@ -2,21 +2,12 @@ const PORT=80;
 
 import express from 'express';
 import Http from 'http';
-import mariadb from 'mariadb';
 import bodyParser from 'body-parser'
 
 const app=express();
 Http.createServer(app);
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
-
-const pool=mariadb.createPool({
-  host: 'database',
-  user: 'root',
-  password: 'serect',
-  connectionLimit: '5',
-});
-pool.getConnection();
 
 app.get('/', (req, res)=>{
   res.render('basic');

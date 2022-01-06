@@ -11,9 +11,12 @@ services:
     links:
       - "judge_db:database"
   judge_db:
-    image: "mariadb"
+    image: "mysql"
+    volumes:
+      - ./judge/mysql:/var/lib/mysql
     environment:
-      - "MARIADB_ROOT_PASSWORD=serect"
+      - "MYSQL_ROOT_PASSWORD=serect"
+      - "MYSQL_DATABASE=judge"
   sqli-1:
     build: ./SQLi-1
     ports:
@@ -21,6 +24,10 @@ services:
     links:
       - "sqli-1_db:database"
   sqli-1_db:
-    image: "mariadb"
+    image: "mysql"
     environment:
-      - "MARIADB_ROOT_PASSWORD=serect"
+      - "MYSQL_ROOT_PASSWORD=serect"
+      - "MYSQL_DATABASE=sqli"
+volumes:
+  judge:
+    external: true

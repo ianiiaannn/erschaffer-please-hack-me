@@ -1,56 +1,54 @@
-const PORT=80;
+/* eslint-disable require-jsdoc */
+const PORT = 80;
 
 import express from 'express';
 import Http from 'http';
-import mariadb from 'mariadb';
+import mysql from 'mysql2/promise';
 
-const app=express();
+const app = express();
 Http.createServer(app);
 app.set('view engine', 'ejs');
 
-const pool=mariadb.createPool({
+const pool=mysql.createPool({
   host: 'database',
   user: 'root',
   password: 'serect',
-  connectionLimit: '5',
-  database: 'judge'
+  database: 'judge',
 });
-pool.getConnection();
 
 async function dbLookup(q) {
-  let conn,message;
-  try {
-    conn = await pool.getConnection();
-    message = await conn.query(q);
-  } catch (err) {
-    console.log(err);
-    message = err;
-  } finally {
-    if (conn) conn.end();
-    return message;
-  }
+  let message;
+  await pool.query({sql: q})
+      .then((results)=>{
+        console.log(message);
+        message=results;
+      }).catch((error)=>{
+        if (error) message= error;
+        throw error;
+      });
+  return message;
 };
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
   res.render('homepage');
 });
 
-app.post('/getlist', (req, res)=>{
+app.post('/getlist', (req, res) => {
   res.send(dbLookup(''));
 });
 
-app.listen(PORT, ()=>{
-  console.log('app started on port '+PORT+'.');
+app.listen(PORT, () => {
+  console.log('app started on port ' + PORT + '.');
 });
 
-function dbInit(){
-  console.log(dbLookup`CREATE DATABASE IF NOT EXISTS \`judge\``);
-  console.log(dbLookup`use judge`);
-  console.log(dbLookup(`CREATE TABLE IF NOT EXISTS \`problems\` (
+async function dbInit() {
+  console.log(await dbLookup(`CREATE DATABASE IF NOT EXISTS \`judge\``));
+  console.log(await dbLookup(`CREATE TABLE IF NOT EXISTS \`problems\` (
     \`id\` int(6) unsigned NOT NULL,
-    \`content\` int(3) unsigned NOT NULL,
+    \`content\` varchar(200) NOT NULL,
     \`flag\` varchar(200) NOT NULL,
-    PRIMARY KEY (\`id\,\`rev\`)
+    PRIMARY KEY (\`id\`)
   ) DEFAULT CHARSET=utf8;`));
+  console.log('aaaaaaa');
 }
 dbInit();

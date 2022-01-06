@@ -1,31 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>find flag</title>
 
-    <style>
-        div{font-family: 微軟正黑體, Times New Roman;}
-      </style>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <title>Judge server</title>
 
-  <body>
-    <div class="container position-relative overflow-hidden">
+  <style>
+    * {
+      font-family: Microsoft JhengHei, Times New Roman;
+    }
+  </style>
+  <script>
+    // https://stackoverflow.com/questions/24775725/loop-through-childnodes
+    NodeList.prototype.forEach = Array.prototype.forEach
+    window.addEventListener('load', () => {
+      const submitBTN = document.getElementById('XHR');
+      let urlEncodeData;
+      const form = document.getElementById('inputForm');
+      form.addEventListener('submit', () => {
+        event.preventDefault();
+        const XHR = new XMLHttpRequest();
+        XHR.responseType = 'json';
+        let req = '';
+        form.childNodes.forEach((e) => {
+          if (e.nodeName == 'INPUT') {
+            if (e.value) {
+              req += e.name;
+              req += '=';
+              req += e.value;
+              req += '&';
+            }
+          }
+        });
+        XHR.addEventListener('error', () => {
+          console.log('error');
+        })
+        XHR.onreadystatechange = () => {
+          if (XHR.readyState == XMLHttpRequest.DONE) {
+            console.log(XHR.response.message);
+            document.getElementById('content').innerText = XHR.response.content;
+            document.getElementById('flag').name = XHR.response.name;
+          }
+        }
+        XHR.open('POST', '/cypo?' + req + '1', true);
+        XHR.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        XHR.send('/cypo?' + req + '1');
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div class="container position-relative overflow-hidden">
 
 
-      <div class="row justify-content-start">
-        <div class="col-4 display-6 text-start"><h1><%- title %></h1></div>
-      </div>
-
-
-      <div class="fixed-bottom">
-        <a class="btn btn-outline-dark" style="color:#DD99BB;" role="button" href="https://docs.google.com/presentation/d/1Au4JujjPrEBJBqkzmnohOygYYJE0tADdaHWsYKLaCiI/edit#slide=id.g10970c3bd3f_14_92">簡報</a>
+    <div class="row justify-content-start">
+      <div class="col-4 display-6 text-start">
+        <h1>
+          Judge server
+        </h1>
       </div>
     </div>
+    <!-- Main row -->
+    <div class="row">
+      <div class="col-3" id="list">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+      </div>
+      <div class="col-9" id="content">
+        <div id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dignissim est ut ipsum commodo, nec
+          iaculis orci varius. Aliquam varius mauris sit amet justo blandit imperdiet. Sed luctus ex arcu, at vestibulum
+          tellus malesuada quis. Curabitur vitae lacus ac ligula dapibus rhoncus. Cras vitae efficitur sapien, sed
+          ullamcorper dolor. Nam sed convallis ex, in commodo urna. Mauris a odio mollis, ullamcorper ipsum porta,
+          pellentesque nibh. Vivamus accumsan nunc id sapien luctus facilisis. Maecenas leo erat, placerat eu iaculis vel,
+          tristique tincidunt augue. In ultricies est augue, in vestibulum turpis venenatis ut. Aenean non massa pretium
+          ipsum imperdiet dapibus vel sit amet leo.
+  
+          Maecenas sed malesuada tellus. Proin tincidunt, nibh in consequat elementum, massa mi molestie mauris, ac tempor
+          ipsum ante eget lectus. Nam eu felis non est elementum bibendum. Nunc sit amet augue et orci ultricies volutpat
+          et id massa. Sed tortor lorem, elementum vehicula viverra non, consectetur tempus mauris. Nullam quis orci odio.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent mi diam,
+          volutpat vel sagittis a, ornare et metus. Nulla et lorem ullamcorper, finibus nibh ac, vehicula lorem. Mauris
+          erat neque, porta porta maximus eget, consectetur id tellus.
+  
+          Fusce libero odio, rhoncus et dui at, auctor cursus dolor. Donec consequat mollis viverra. Donec luctus eros eu
+          turpis vestibulum, ac fringilla arcu aliquam. Cras rhoncus elementum feugiat. Mauris laoreet tellus accumsan,
+          tempus mauris a, pulvinar orci. Aliquam erat volutpat. Donec rutrum ex ante, sollicitudin viverra turpis tempus
+          eget. Maecenas blandit libero justo, vitae mattis urna varius a. Duis tincidunt ultrices gravida. Morbi commodo
+          quis lectus tincidunt finibus. Suspendisse tempor nec quam in suscipit. Aliquam quis sagittis nunc.
+  
+          Sed ornare viverra enim id varius. Integer pellentesque commodo convallis. Fusce sed pharetra felis. Quisque ut
+          erat tincidunt, suscipit leo eget, consequat sem. Ut enim leo, tincidunt sed posuere sit amet, ultrices a
+          turpis. Cras gravida non dui at eleifend. Sed semper, ex vitae sollicitudin ornare, nisi lorem tempus est, in
+          consequat diam elit eget ipsum. Nulla egestas, mi quis scelerisque varius, elit mauris semper velit, id bibendum
+          mauris urna in magna. Donec scelerisque aliquet massa, sit amet convallis mauris ullamcorper non. Maecenas
+          sodales quam quis sapien volutpat lobortis. Cras pulvinar condimentum neque, nec laoreet lacus dictum ac. In
+          facilisis sodales justo, et molestie est tempus eget. Nunc mi felis, malesuada in vehicula vel, maximus at orci.
+          In varius imperdiet justo, a dapibus elit euismod ac.
+  
+          Nunc sodales erat maximus diam aliquam ultrices. Aenean a interdum metus, vel volutpat odio. Maecenas eget
+          feugiat orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam euismod efficitur nunc, sed
+          tincidunt nibh fermentum at. Proin malesuada turpis iaculis placerat elementum. Praesent non hendrerit massa.
+          Praesent ornare varius velit in sagittis. Nullam pretium congue tellus, eget dictum neque finibus vel.</div>
+        <div id="form" class="form-group">
+          <form method="POST" id="inputForm">
+            <input id="flag" class="form-control">
+            <button type="submit" id="XHR">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+</body>
+
 </html>

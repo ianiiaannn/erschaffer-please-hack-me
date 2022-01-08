@@ -51,6 +51,11 @@ app.listen(PORT, () => {
   console.log('app started on port ' + PORT + '.');
 });
 
+app.get('/teapod', (req, res)=>{
+  res.statusCode=418;
+  res.send('I\'m a teapod. FLAG{save418}')
+});
+
 async function dbInit() {
   await dbLookup(`CREATE DATABASE IF NOT EXISTS \`judge\``);
   await dbLookup(`CREATE TABLE IF NOT EXISTS \`problems\` (

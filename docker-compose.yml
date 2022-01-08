@@ -28,4 +28,3 @@ services:
       - "MYSQL_DATABASE=sqli"
 volumes:
   judge:
-    external: true

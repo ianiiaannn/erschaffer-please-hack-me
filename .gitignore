@@ -130,3 +130,6 @@ dist
 # database
 */mysql/
 mysql/
+
+# redis
+dump.rdb

@@ -4,18 +4,41 @@ services:
     build: ./basic
     ports:
       - "23456:80"
-  judge:
-    build: ./judge
+  ctfd:
+    image: ctfd/ctfd
     ports:
-      - "80:80"
-    links:
-      - "judge_db:database"
-  judge_db:
-    image: "mysql"
+      - "8000:8000"
     volumes:
-      - ./judge/mysql:/var/lib/mysql
+      - .ctfd/data/CTFd/logs:/var/log/CTFd
+      - .ctfd/data/CTFd/uploads:/var/uploads
+    depends_on:
+      - ctfd-db
+    networks:
+        default:
+        internal:
+  ctfd-db:
+    image: mariadb:10.4.12
+    restart: always
     environment:
-      - "MYSQL_DATABASE=judge"
+      - MYSQL_ROOT_PASSWORD=ctfd
+      - MYSQL_USER=ctfd
+      - MYSQL_PASSWORD=ctfd
+      - MYSQL_DATABASE=ctfd
+    volumes:
+      - .ctfd/data/mysql:/var/lib/mysql
+    networks:
+        internal:
+    # This command is required to set important mariadb defaults
+    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
+
+  cache:
+    image: redis:4
+    restart: always
+    volumes:
+    - .ctfd/data/redis:/data
+    networks:
+        internal:  
+
   sqli-1:
     build: ./SQLi-1
     ports:
@@ -26,5 +49,7 @@ services:
     image: "mysql"
     environment:
       - "MYSQL_DATABASE=sqli"
-volumes:
-  judge:
+networks:
+    default:
+    internal:
+        internal: true

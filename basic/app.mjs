@@ -15,6 +15,7 @@ http.createServer(app);
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false, limit: '4mb'}));
+app.use(cros());
 
 app.get('/', (req, res) => {
   res.send('target server');
@@ -121,6 +122,21 @@ app.post('/md5', (req, res)=>{
       // res.send(files.file1.filepath);
     }
   });
+});
+
+app.get('/teapod', (req, res)=>{
+  res.statusCode=418;
+  res.send('I\'m a teapod. FLAG{save418}');
+});
+
+app.post('/cookiereader', (req, res)=>{
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000/');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  next();
+  console.log(req.cookies);
+  console.log(req.cookies.session);
+  res.send('a');
 });
 
 app.listen(PORT, () => {

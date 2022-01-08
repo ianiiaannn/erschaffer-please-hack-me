@@ -12,5 +12,9 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-google": "^0.14.0"
   }
 }

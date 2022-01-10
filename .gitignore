@@ -133,3 +133,6 @@ mysql/
 
 # redis
 dump.rdb
+
+# CTFd
+.ctfd/

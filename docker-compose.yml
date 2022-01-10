@@ -3,7 +3,7 @@ services:
   basic:
     build: ./basic
     ports:
-      - "23456:80"
+      - "80:80"
   ctfd:
     image: ctfd/ctfd
     ports:
@@ -13,31 +13,6 @@ services:
       - .ctfd/data/CTFd/uploads:/var/uploads
     depends_on:
       - ctfd-db
-    networks:
-        default:
-        internal:
-  ctfd-db:
-    image: mariadb:10.4.12
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=ctfd
-      - MYSQL_USER=ctfd
-      - MYSQL_PASSWORD=ctfd
-      - MYSQL_DATABASE=ctfd
-    volumes:
-      - .ctfd/data/mysql:/var/lib/mysql
-    networks:
-        internal:
-    # This command is required to set important mariadb defaults
-    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
-
-  cache:
-    image: redis:4
-    restart: always
-    volumes:
-    - .ctfd/data/redis:/data
-    networks:
-        internal:  
 
   sqli-1:
     build: ./SQLi-1
@@ -49,7 +24,4 @@ services:
     image: "mysql"
     environment:
       - "MYSQL_DATABASE=sqli"
-networks:
-    default:
-    internal:
-        internal: true
+      

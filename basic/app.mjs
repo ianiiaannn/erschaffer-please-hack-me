@@ -15,7 +15,6 @@ http.createServer(app);
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false, limit: '4mb'}));
-app.use(cros());
 
 app.get('/', (req, res) => {
   res.send('target server');

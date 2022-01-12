@@ -15,6 +15,7 @@ http.createServer(app);
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false, limit: '4mb'}));
+app.use('/static', express.static('public'));
 
 app.get('/', (req, res) => {
   res.send('target server');
@@ -26,6 +27,14 @@ app.get('/1', (req, res) => {
 
 app.get('/2', (req, res) => {
   res.render('basic', {title: '第二題', script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- FLAG{HOW_RUDE_YOU_ARE} -->'});
+});
+
+app.get('/3', (req, res) => {
+  app.render('basic', {title: 'Find in files', script: '</script><script src="/static/js/somejs.js"></script><script>', message: 'Find the flag in files!<br>Some html tag will link to other files<!-- (1/5) FLAG{HTML-->'});
+});
+
+app.get('/4', (req, res)=>{
+  res.render('basic', {title: 'Basic expoit', script: '', message: '<form id="form" method="POST"><input id="username" name="username"></input><input id="password" name="password"></input><button>Login!</button></form><script src="/static/js/login.js"></script>'});
 });
 
 app.get('/admin/logout', (req, res) => {

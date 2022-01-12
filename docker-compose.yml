@@ -11,8 +11,6 @@ services:
     volumes:
       - .ctfd/data/CTFd/logs:/var/log/CTFd
       - .ctfd/data/CTFd/uploads:/var/uploads
-    depends_on:
-      - ctfd-db
 
   sqli-1:
     build: ./SQLi-1
@@ -24,4 +22,5 @@ services:
     image: "mysql"
     environment:
       - "MYSQL_DATABASE=sqli"
+      - "MYSQL_ALLOW_EMPTY_PASSWORD=true"
       

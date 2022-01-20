@@ -22,15 +22,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/1', (req, res) => {
-  res.render('basic', {title: '第一題', script: '', message: 'hmmm where is the flag?<br><!-- FLAG{Th1sI5AnExamp1eF1aggggggggggggggggggggggggggggggggggggggggggggggggg} -->'});
+  res.render('basic', {title: '第一題', script: '', message: 'hmmm where is the flag?<br><!-- eleCTF{Th1sI5AnExamp1eF1aggggggggggggggggggggggggggggggggggggggggggggggggg} -->'});
 });
 
 app.get('/2', (req, res) => {
-  res.render('basic', {title: '第二題', script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- FLAG{HOW_RUDE_YOU_ARE} -->'});
+  res.render('basic', {title: '第二題', script: 'document.addEventListener(\'contextmenu\', event => {event.preventDefault();alert(\'No U little hacker\')});', message: 'no rightclick please<br><!-- eleCTF{HOW_RUDE_YOU_ARE} -->'});
 });
 
 app.get('/3', (req, res) => {
-  app.render('basic', {title: 'Find in files', script: '</script><script src="/static/js/somejs.js"></script><script>', message: 'Find the flag in files!<br>Some html tag will link to other files<!-- (1/5) FLAG{HTML-->'});
+  app.render('basic', {title: 'Find in files', script: '</script><script src="/static/js/somejs.js"></script><script>', message: 'Find the flag in files!<br>Some html tag will link to other files<!-- (1/5) eleCTF{HTML-->'});
 });
 
 app.get('/4', (req, res)=>{
@@ -47,7 +47,7 @@ app.get('/admin/logout', (req, res) => {
       if (lowDate <= reqDate && upDate >= reqDate) {
         if (req.rawHeaders.toString().match(/curl/gi)) {
           if (req.rawHeaders.toString().match(/jp/gi)) {
-            res.render('basic', {title: 'HTTP Header', script: '', message: 'You have been successful logged out!<br>FLAG{FINALLY_LOGOUT_STUPID_SYSTEM}'});
+            res.render('basic', {title: 'HTTP Header', script: '', message: 'You have been successful logged out!<br>eleCTF{FINALLY_LOGOUT_STUPID_SYSTEM}'});
           } else {
             res.render('basic', {title: 'HTTP Header', script: '', message: 'あなたは誰'});
           }
@@ -81,15 +81,15 @@ app.post('/cypo', (req, res)=>{
     if (req.query.ans2=='Ljnbja lryqna') {
       if (req.query.ans3=='Programming is like sex:One mistake and you have to support it for the rest of your life.') {
         if (req.query.ans4=='b3abe5d8c69b38733ad57ea75e83bcae42bbbbac75e3a5445862ed2f8a2cd677') {
-          res.send({cryptography, flag: 'FLAG{e098b8a25b0a7a266299a01606a650ea672c42a3fb10f5a3c5265b31e59a1331}', message: 'You win! The flag is SHA256 my favotie game.'});
+          res.send({cryptography, flag: 'eleCTF{e098b8a25b0a7a266299a01606a650ea672c42a3fb10f5a3c5265b31e59a1331}', message: 'You win! The flag is SHA256 my favotie game.'});
         } else {
-          res.send({flag: 'FLAG{BaseBaseBaseBaseBaseBase_BaseBaseBaseBase}', message: 'What is the SHA256 hash of string "SHA256"?'});
+          res.send({flag: 'eleCTF{BaseBaseBaseBaseBaseBase_BaseBaseBaseBase}', message: 'What is the SHA256 hash of string "SHA256"?'});
         }
       } else {
-        res.send({flag: 'FLAG{Rs_jwho_Qosgofia}', message: 'UHJvZ3JhbW1pbmcgaXMgbGlrZSBzZXg6T25lIG1pc3Rha2UgYW5kIHlvdSBoYXZlIHRvIHN1cHBvcnQgaXQgZm9yIHRoZSByZXN0IG9mIHlvdXIgbGlmZS4='});
+        res.send({flag: 'eleCTF{Rs_jwho_Qosgofia}', message: 'UHJvZ3JhbW1pbmcgaXMgbGlrZSBzZXg6T25lIG1pc3Rha2UgYW5kIHlvdSBoYXZlIHRvIHN1cHBvcnQgaXQgZm9yIHRoZSByZXN0IG9mIHlvdXIgbGlmZS4='});
       }
     } else {
-      res.send({flag: 'FLAG{TH1S1S2EZF0RMEEEEEEEEEEE}', message: 'Va pelcgbtencul, n Pnrfne pvcure vf bar bs gur fvzcyrfg naq zbfg jvqryl xabja rapelcgvba grpuavdhrf. Vg vf n glcr bs fhofgvghgvba pvcure va juvpu rnpu yrggre va gur cynvagrkg vf ercynprq ol n yrggre fbzr svkrq ahzore bs cbfvgvbaf qbja gur nycunorg. Gur nafjre vf "Ywaown yeldan"'});
+      res.send({flag: 'eleCTF{TH1S1S2EZF0RMEEEEEEEEEEE}', message: 'Va pelcgbtencul, n Pnrfne pvcure vf bar bs gur fvzcyrfg naq zbfg jvqryl xabja rapelcgvba grpuavdhrf. Vg vf n glcr bs fhofgvghgvba pvcure va juvpu rnpu yrggre va gur cynvagrkg vf ercynprq ol n yrggre fbzr svkrq ahzore bs cbfvgvbaf qbja gur nycunorg. Gur nafjre vf "Ywaown yeldan"'});
     }
   } else {
     res.send({message: '01010100 01101000 01100101 01110010 01100101 00100000 01100001 01110010 01100101 00100000 01101111 01101110 01101100 01111001 00100000 00110001 00110000 00100000 01101011 01101001 01101110 01100100 01110011 00100000 01101111 01100110 00100000 01110000 01100101 01101111 01110000 01101100 01100101 00100000 01101001 01101110 00100000 01110100 01101000 01101001 01110011 00100000 01110111 01101111 01110010 01101100 01100100 00111010 00100000 01110100 01101000 01101111 01110011 01100101 00100000 01110111 01101000 01101111 00100000 01101011 01101110 01101111 01110111 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100001 01101110 01100100 00100000 01110100 01101000 01101111 01110011 01100101 00100000 01110111 01101000 01101111 00100000 01100100 01101111 01101110 11100010 10000000 10011001 01110100 00101110'});
@@ -115,7 +115,7 @@ app.post('/md5', (req, res)=>{
             if (sha11!=sha12) {
               md5File(files.file1.filepath).then((md51)=>{
                 md5File(files.file2.filepath).then((md52)=>{
-                  if (md51==md52)res.send('FLAG{MDMDMDMDMD}');
+                  if (md51==md52)res.send('eleCTF{MDMDMDMDMD}');
                   else res.send('Wrong files.');
                 });
               });
@@ -134,7 +134,7 @@ app.post('/md5', (req, res)=>{
 
 app.get('/teapod', (req, res)=>{
   res.statusCode=418;
-  res.send('I\'m a teapod. FLAG{save418}');
+  res.send('I\'m a teapod. eleCTF{save418}');
 });
 
 app.post('/cookiereader', (req, res)=>{

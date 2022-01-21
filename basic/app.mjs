@@ -37,6 +37,10 @@ app.get('/4', (req, res)=>{
   res.render('basic', {title: 'Basic expoit', script: '', message: 'Top Serect inside!!!<hr><label for="username">Username</label><form id="form" method="POST"><input id="username" name="username"class="form-control"></input><label for="password">Password</label><input id="password" name="password"class="form-control"type="password"></input><button class="btn btn-primary">Login!</button></form><script src="/static/js/login.js"></script>'});
 });
 
+app.get('/5', (req, res)=>{
+  res.render('basic', {title: 'Basic expoit', script: '', message: '<from id="from"></input><label for="password">Password</label><input id="password" name="password"class="form-control"type="password"></input><button class="btn btn-primary">Login!</button></form><script src="/static/js/password.js"></script>'});
+});
+
 app.get('/admin/logout', (req, res) => {
   console.log(req.headers.host);
   if (req.headers.referer == req.headers.host + '/admin') {

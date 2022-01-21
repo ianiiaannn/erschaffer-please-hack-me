@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false, limit: '4mb'}));
 app.use('/static', express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('target server');
+  res.render('basic', {title: '首頁', script: '', message: 'abc'});
 });
 
 app.get('/1', (req, res) => {
@@ -34,7 +34,7 @@ app.get('/3', (req, res) => {
 });
 
 app.get('/4', (req, res)=>{
-  res.render('basic', {title: 'Basic expoit', script: '', message: '<form id="form" method="POST"><input id="username" name="username"></input><input id="password" name="password"></input><button>Login!</button></form><script src="/static/js/login.js"></script>'});
+  res.render('basic', {title: 'Basic expoit', script: '', message: 'Top Serect inside!!!<hr><label for="username">Username</label><form id="form" method="POST"><input id="username" name="username"class="form-control"></input><label for="password">Password</label><input id="password" name="password"class="form-control"type="password"></input><button class="btn btn-primary">Login!</button></form><script src="/static/js/login.js"></script>'});
 });
 
 app.get('/admin/logout', (req, res) => {
@@ -135,16 +135,6 @@ app.post('/md5', (req, res)=>{
 app.get('/teapod', (req, res)=>{
   res.statusCode=418;
   res.send('I\'m a teapod. eleCTF{save418}');
-});
-
-app.post('/cookiereader', (req, res)=>{
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000/');
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  next();
-  console.log(req.cookies);
-  console.log(req.cookies.session);
-  res.send('a');
 });
 
 app.listen(PORT, () => {

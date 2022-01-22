@@ -4,6 +4,10 @@ services:
     build: ./basic
     ports:
       - "80:80"
+  cowsay:
+    build: ./cowsay
+    ports:
+      - "23456:23456"
   ctfd:
     image: ctfd/ctfd
     ports:

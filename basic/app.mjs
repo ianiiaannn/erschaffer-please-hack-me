@@ -38,7 +38,7 @@ app.get('/4', (req, res)=>{
 });
 
 app.get('/5', (req, res)=>{
-  res.render('basic', {title: 'Basic expoit', script: '', message: '<from id="from"></input><label for="password">Password</label><input id="password" name="password"class="form-control"type="password"></input><button class="btn btn-primary">Login!</button></form><script src="/static/js/password.js"></script>'});
+  res.render('basic', {title: 'Harder asic expoit', script: '', message: '<form id="form"></input><label for="password">Password</label><input id="password" name="password"class="form-control"type="password"></input><button class="btn btn-primary">Login!</button></form><script src="/static/js/password.js"></script>'});
 });
 
 app.get('/admin/logout', (req, res) => {
@@ -134,9 +134,9 @@ app.post('/md5', (req, res)=>{
   });
 });
 
-app.get('/teapod', (req, res)=>{
+app.get('/teapot', (req, res)=>{
   res.statusCode=418;
-  res.send('I\'m a teapod. eleCTF{save418}');
+  res.send('I\'m a teapot. eleCTF{save418}');
 });
 
 app.listen(PORT, () => {

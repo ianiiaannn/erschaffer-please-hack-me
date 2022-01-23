@@ -15,7 +15,10 @@ services:
     volumes:
       - .ctfd/data/CTFd/logs:/var/log/CTFd
       - .ctfd/data/CTFd/uploads:/var/uploads
-
+  happy-metaverse-year:
+    build: ./happy-metaverse-year
+    ports:
+      - "8003:80"
   sqli-1:
     build: ./SQLi-1
     ports:

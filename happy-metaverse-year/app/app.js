@@ -43,15 +43,15 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-
-    const query = `SELECT username, password, ip FROM users WHERE username = '${username}'`;
+    const query = `SELECT * FROM users WHERE username = '${username}' and password = '${password}`;
     db.get(query, (err, user) => {
         if (res.headersSent) return;
 
-        if (!err && user && user.password === password && user.ip === req.ip)
-            res.redirect('/welcome');
+        if (!err)
+            
+            res.render('welcome',{ flag: FL4G});
         else
-            res.render('failed');
+           res.render('failed');
     });
 
     // querying time should not longer than 50ms
@@ -59,6 +59,6 @@ app.post('/login', (req, res) => {
 });
 
 // free welcome page
-app.get('/welcome', (req, res) => res.render('welcome'));
+app.get('/welcome', (req, res) => res.render('welcome',{ flag: 0}));
 
 app.listen(80);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<title>gogoro抽獎</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+  <script type="text/javascript">
+    function chk(){
+      if(document.sendform.ac.value!='toyz'){
+        alert('帳號錯誤，您是不是忘記抽雲吐霧');
+        document.sendform.passwd.focus();
+        return false ;
+      }
+      if(document.sendform.passwd.value!='i_like_smoke_weed'){
+        alert('詐賭監控系統：密碼錯誤');
+        document.sendform.passwd.focus();
+        return false ;
+      }
+      return true;
+    }
+    </script>
+</head>
+<body>
+<div class="w3-container w3-center">
+	<h1 class="w3-animate-bottom">gogoro抽獎登入系統</h1>
+	<h3 class="w3-animate-opacity">歡迎您，玩家</h3>
+	<img class="w3-image" src="https://img.technews.tw/wp-content/uploads/2021/02/23140528/img-kv-scooter-hazel-desktop%402x.png" alt="a cool gogoro" width="300" height="200">
+</div>
+
+<form class="w3-container" name="sendform" method="post" onsubmit="return chk();">
+
+  
+  <input class="w3-input" type="text" placeholder="帳號" name="ac"><br>
+  <input class="w3-input" type="text" placeholder="密碼" name="passwd"><br>
+  <button class="w3-button w3-black" type="submit" >登入尊貴の抽獎系統</button>
+
+
+</form>
+
+</body>
+</html>

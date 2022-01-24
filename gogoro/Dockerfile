@@ -3,8 +3,8 @@ FROM ubuntu:18.04
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 # project and workdir
-COPY . /home/hello-flask
-WORKDIR /home/hello-flask
+COPY ./app /home/gogoro-flask
+WORKDIR /home/gogoro-flask
 #tall py37
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.7 \

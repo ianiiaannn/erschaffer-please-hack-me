@@ -122,7 +122,7 @@ app.post('/md5', (req, res)=>{
                 });
               });
             } else {
-              res.send('Same flies.');
+              res.send('Same files.');
             }
           });
         });

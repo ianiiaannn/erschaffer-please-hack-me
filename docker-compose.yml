@@ -19,6 +19,10 @@ services:
     build: ./happy-metaverse-year
     ports:
       - "8003:80"
+  gogoro:
+    build: ./gogoro
+    ports:
+     - "420:420"
   sqli-1:
     build: ./SQLi-1
     ports:

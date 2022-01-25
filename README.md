@@ -17,8 +17,8 @@ eleCTF{S1ar_th1s_repo_on_g1thu8}
 
 * CTFd 為計分伺服器，使用 8000 port。
 * basic 為簡易題目伺服器，使用 80 port，前端為 Start Bootstrap 的 [Clean Blog](https://github.com/startbootstrap/startbootstrap-clean-blog) (MIT Lience)
-* SQLi-1 為 SQL-Injection 伺服器，使用 34567 port。
 * happy-metaverse-year 為 SQL-Injection Nodejs伺服器，使用 8003 port
+* cowsay 為 command injection 伺服器，使用 23456 port，被使用者破壞請殺掉重新 build
 * gogoro 為 Web前端漏洞 ，使用 420 port
 * Container 使用不同 Port，超連結無法生效，使用 Javascript 強制跳轉。
 

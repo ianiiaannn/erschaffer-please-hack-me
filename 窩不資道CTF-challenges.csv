@@ -1,0 +1,83 @@
+id,name,description,connection_info,max_attempts,value,category,type,state,requirements
+1,CTF 比賽想不到解法時在做什麼？MOBA 又輸了？可以來右鍵嗎？,"[點我（不是對我右鍵）](javascript:window.location='http://'+window.location.hostname+'/1';)
+![271539422_1001554750770714_5248433501003025761_n.png](/files/59635fae9a49936e95db1d3c3dc6112f/271539422_1001554750770714_5248433501003025761_n.png)
+",,0,100,Web,standard,visible,
+2,右鍵神域,"![](https://c.tenor.com/bdHJxqM8kLoAAAAC/sao-kirito.gif)
+<br >
+[點我](javascript:window.location='http://'+window.location.hostname+'/2';)",,0,100,Web,standard,visible,
+3,NO HASH NO LIFE 雜湊人生,"[點我](javascript:window.location='http://'+window.location.hostname+'/md5';)
+<br>
+![](https://4.bp.blogspot.com/-BA5F-iVGYqU/WXAc2lvsAjI/AAAAAAAAXBY/r9PByPxLSnsc6qJRR3wm0BCq5NX_iyObwCKgBGAs/s1600/what-if-i-told-you-what-if-i-told-you-there-are-new-cryptographic-hash-functions-since-1995.jpg)",,0,150,Crypto,standard,visible,
+4,咖啡與茶壺共舞,80 PORT 上的伺服器似乎支援 HTCPCP？,,0,100,Misc,standard,visible,
+5,在 Github 尋求解答是否搞錯了什麼？,記得加星星,,0,100,Misc,standard,visible,
+6,別把驗證系統寫在前端!,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/yxhKBJkey1o?autoplay=1"" title=""YouTube video player"" frameborder=""0"" allow=""accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>
+
+[Boing Boing!!!](javascript:window.location='http://'+window.location.hostname+'/4';)
+<br>
+![fte.jpg](/files/175a612bf2782e21af79a5c7e2f14d0a/fte.jpg)",,0,110,Web,standard,visible,
+7,フブキ的加密題,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/r8O_JV5ME70?autoplay=1"" title=""YouTube video player"" frameborder=""0"" allow=""accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>
+
+共有4種加密方式
+按下Click Me 檢查並獲得題目喔
+[這邊](javascript:window.location='http://'+window.location.hostname+'/crypto';)",,0,200,Crypto,standard,visible,
+8,你能把我登出嗎?,"Try to logout me
+[Elite logout system](javascript:window.location='http://'+window.location.hostname+'/admin/logout';)",,0,200,Web,standard,visible,
+9,MoOMoO,"
+[點我](javascript:window.location='http://'+window.location.hostname+':23456/';)
+
+拿到 FLAG 就好，請不要進一步攻擊或是干擾其他人解題。<br>
+玩 fortune 沒差啦 :P",,0,110,Web,standard,visible,
+10,喵喵喵喵,"維吉尼亞密碼是凱薩加密的一種改良版，其特點是在於可以用一串單字來進行加/解密 <br><br>
+
+在教學組細心的安排下總召的貓終於精通了什麼什麼64的編碼，而喵喵為了讓字串更加安全，選擇先用維吉尼亞來進行加密後再進行編碼，你能通靈出貓的語言並成功解密嗎",,0,100,Crypto,standard,visible,
+11,這你要我拼我還真不敢,"#### 出事了阿伯，誰把FLAG拆成這樣啊!
+
+
+<br>
+
+![1624507668143.jpg](/files/d4cdd34e7eadf312cffce4ae6fabdf21/1624507668143.jpg)
+
+<br>
+
+[這題太耗費時間惹](javascript:window.location='http://'+window.location.hostname+'/5';)
+
+",,0,200,Web,standard,visible,
+12,E4sy_Snake,"![552022-01-23_211208.png](/files/d6e5171e9cb38154e3fc74e4fc751fb8/552022-01-23_211208.png)
+<br >
+宸宸是一個python新手，為了讓別人看不出他的程式碼，他把python拿去編譯(compile)了<br >
+你能找出密碼在哪裡嗎?<br >
+> python e4sy_snake_compiled.pyc",,0,100,Reverse,standard,visible,
+13,Happy Metaverse Year,"宸宸幻想自己能夠和kirito一樣可以Link!<br>
+你可以幫助他登入嗎?<br>
+[點我開始連結](javascript:window.location='http://'+window.location.hostname+':8003';)
+
+> Very Baby SQLi
+<br>
+> Credit : splitline",,0,150,Web,standard,visible,
+14,電腦到底要怎麼知道我輸入了些啥?,"宸宸有天拿到總召大人設計的一把神秘鍵盤，這個鍵盤的輸出特別奇怪<br>
+按下a的時候電腦卻輸出97 <br>
+按下D輸出68<br>
+按下數字鍵8輸出56 <br>
+宸宸就用了這把鍵盤把FLAG打出來了，你能解的出來嗎?<br>
+```
+[101, 108, 101, 67, 84, 70, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125]
+```
+
+![e-ascii-table-and-description-dec-hx-oct-html-chr-63132326.png](/files/2550002731aab33cafcd612d1467de85/e-ascii-table-and-description-dec-hx-oct-html-chr-63132326.png)
+",,0,100,Crypto,standard,visible,
+16,gogoro抽獎系統,"知名實況主t⭕yz自行寫了一個抽獎系統，無奈先前在監獄被關太久，資安概念幾乎忘光，似乎輸入某組特定的帳號密碼方能成功抽中gogoro...<br>
+[抽獎活動連結](http://10.213.0.11:420)
+",,0,110,Web,standard,visible,
+17,Even bots won't help you...,"![uag8piwil8k51.png](/files/5862ebd54a3aa924d71e485a07519d82/uag8piwil8k51.png)
+[這邊](https://dojo.tcirc.tw)",,0,100,Web,standard,visible,
+19,誰攻擊了我家伺服器(數位鑑識),"宸宸開設的遊戲伺服器被莫名人士攻擊了，你能幫忙找出IP來源嗎?<br>
+請使用 Wireshark 封包分析軟體打開檔案喔~<br>
+> FLAG格式 eleCTF{你找到的IP} <br>
+
+![ipinject.jpg](/files/7bc6838b7db57ffaa1d31551f7e3a745/ipinject.jpg)",,0,150,Misc,standard,visible,
+20,寒訓有抽特斯拉嗎,"就說！沒有！要抽！特斯拉！！！！！！！！！！！<br>
+[特斯拉抽獎連結](http://10.213.0.11:748/)
+![](https://www.tesla.com/ownersmanual/images/GUID-BEE67A59-6DD7-460C-9C49-0DD47E707A02-online-en-US.jpg)",,0,110,Web,standard,hidden,
+21,寒訓有抽特斯拉嗎,"就說！沒有！要抽！特斯拉！！！！！！！！！！！<br>
+[特斯拉抽獎連結](http://10.213.0.11:748/)
+![](https://www.tesla.com/ownersmanual/images/GUID-BEE67A59-6DD7-460C-9C49-0DD47E707A02-online-en-US.jpg)",,0,110,Web,standard,visible,

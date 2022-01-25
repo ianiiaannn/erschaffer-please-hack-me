@@ -23,15 +23,4 @@ services:
     build: ./gogoro
     ports:
      - "420:420"
-  sqli-1:
-    build: ./SQLi-1
-    ports:
-      - "34567:80"
-    links:
-      - "sqli-1_db:database"
-  sqli-1_db:
-    image: "mysql"
-    environment:
-      - "MYSQL_DATABASE=sqli"
-      - "MYSQL_ALLOW_EMPTY_PASSWORD=true"
-      
+     

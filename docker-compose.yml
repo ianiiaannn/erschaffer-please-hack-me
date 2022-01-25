@@ -23,4 +23,8 @@ services:
     build: ./gogoro
     ports:
      - "420:420"
+  tesla:
+    build: ./tesla
+    ports:
+     - "748:748"
      
